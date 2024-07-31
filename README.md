@@ -1,5 +1,5 @@
 # ReactGram
-Projeto baseado no Instagram. Desnvolvido usando React, Redux, Express, MongoDB, Mongoose, entre outros.
+Projeto baseado no Instagram. Sendo desnvolvido usando React, Redux, Express, MongoDB, Mongoose, entre outros.
 
 ### Conteúdo
   - Setup do projeto

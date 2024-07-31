@@ -5,3 +5,4 @@ Projeto baseado no Instagram. Sendo desnvolvido usando React, Redux, Express, Mo
   - Setup do projeto
   - Configurando o dotenv
   - Rota de teste da API
+  - Importando middlewares

@@ -5,7 +5,10 @@ const router = express.Router()
 //objeto exportado la esta sendo desestruturado aqui em var separadas e vão responder por rotas
 const {register} = require("../controllers/UserController.js")
 
+//Middlewares
+const validate = require("../middlewares/handleValidation.js")
+
 //Routes
-router.post("/register", register)
+router.post("/register", validate, register)
 
 module.exports = router

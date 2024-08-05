@@ -11,3 +11,4 @@ Projeto baseado no Instagram. Sendo desnvolvido usando React, Redux, Express, Mo
   - Criando Model da foto
   - Crinado Controller do usuário
   - Iniciando validações
+  - Validações de criação de usuário

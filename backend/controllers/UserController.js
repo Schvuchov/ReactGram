@@ -18,8 +18,37 @@ const generateToken = (id) => {
 
 // Register user and sign in
 const register = async(req, res) => {
-    //vamos criar essa função na prox aula
-    res.send("Registro")
+    const { name, email, password } = req.body
+
+    //checando se usuario existe
+    const user = await User.findOne({email})
+
+    if(user) {
+        res.status(422).json({errors: ["Por favor utilize outro e-mail."]})
+        return
+    }
+
+    //gera password hash
+    const salt = await bcrypt.genSalt() //gera string aleatoria
+    const passwordHash = await bcrypt.hash(password, salt)
+
+    //criar usuário
+    const newUser = await User.create({
+        name,
+        email,
+        password: passwordHash,
+    })
+
+    // se o user for criado com sucesso, retorna token
+    if(!newUser) {
+        res.status(422).json({errors: ["Houve um erro, por favor tente mais tarde."]})
+        return
+    }
+
+    res.status(201).json({
+        _id: newUser._id,
+        token: generateToken(newUser._id)
+    })
 }
 
 //para disponibilizar para as rotas

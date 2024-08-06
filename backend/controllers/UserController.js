@@ -51,7 +51,13 @@ const register = async(req, res) => {
     })
 }
 
+//Sign user in
+const login = (req, res) => {
+    res.send("Login")
+}
+
 //para disponibilizar para as rotas
 module.exports = {
     register,
+    login,
 }

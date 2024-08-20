@@ -2,6 +2,7 @@ const User = require("../models/User")
 const jwt = require("jsonwebtoken")
 const jwtSecret = process.env.JWT_SECRET
 
+//validação de autenticação 
 const authGuard = async (req, res, next) => {
     const authHeader = req.headers["authorization"]
     const token = authHeader && authHeader.split(" ")[1] //split no espaço, 1 pega a segunda parte

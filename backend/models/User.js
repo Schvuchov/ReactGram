@@ -14,5 +14,7 @@ const userSchema = new Schema(
     }
 )
 
+//timestamps add createdAt e updatedAt
+
 const User = mongoose.model("User", userSchema)
 module.exports = User

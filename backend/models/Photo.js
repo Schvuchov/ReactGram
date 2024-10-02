@@ -15,5 +15,8 @@ const photoSchema = new Schema(
     }
 )
 
+//image é string pois vamos usar o caminho 
+// likes array pois tbm vai conter o nome do usuario, se curtiu ou não...
+
 const Photo = mongoose.model("Photo", photoSchema)
 module.exports = Photo

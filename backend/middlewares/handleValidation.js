@@ -17,6 +17,7 @@ const validate = (req, res, next) => {
     return res.status(422).json({
         errors: extractedErrors
     })
+    //no fronted vamos estar consumindo errors pra entender o erro e dar o feedback para o usuário
 }
 
 module.exports = validate

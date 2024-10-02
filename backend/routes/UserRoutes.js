@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router()
 
 //chamar as funções do Controller
-//objeto exportado la esta sendo desestruturado aqui em var separadas e vão responder por rotas
+//objeto exportado la (no controller) esta sendo desestruturado aqui em var separadas e vão responder por rotas para disponibilizar para app
 const {register, login} = require("../controllers/UserController.js")
 
 //Middlewares

@@ -79,8 +79,16 @@ const login = async (req, res) => {
 
 }
 
+//para conseguir acessar o perfil do usuário
+const getCurrentUser = async(req, res) => {
+    const user = req.user;
+
+    res.status(200).json(user)
+}
+
 //para disponibilizar para as rotas
 module.exports = {
     register,
     login,
+    getCurrentUser,
 }

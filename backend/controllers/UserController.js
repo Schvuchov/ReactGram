@@ -3,6 +3,7 @@ const User = require("../models/User")
 
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
+const mongoose = require("mongoose")
 
 const jwtSecret = process.env.JWT_SECRET
 
@@ -88,7 +89,42 @@ const getCurrentUser = async(req, res) => {
 
 //atualizar um usuário
 const update = async(req, res) => {
-    res.send("Update")
+    
+    const {name, password, bio} = req.body
+
+    let profileImage = null
+
+    if(req.file){
+        profileImage = req.file.filename
+    }
+
+    const reqUser = req.user
+
+    const user = await User.findById(new mongoose.Types.ObjectId(reqUser._id)).select("-password") 
+    //id é tipo um token, tem que converter a string que vem da req para o ObjectId
+
+    if(name) {
+        user.name = name
+    }
+
+    if(password) {
+        //gera password hash
+        const salt = await bcrypt.genSalt() //gera string aleatoria
+        const passwordHash = await bcrypt.hash(password, salt)
+
+        user.password = passwordHash
+    }
+
+    if(profileImage){
+        user.profileImage = profileImage
+    }
+
+    if(bio) {
+        user.bio = bio
+    }
+
+    await user.save() //salvar no banco
+    res.status(200).json(user)
 }
 
 //para disponibilizar para as rotas

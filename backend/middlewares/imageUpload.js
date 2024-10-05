@@ -20,7 +20,7 @@ const imageStorage = multer.diskStorage({
 })
 
 //validação e onde a imagem vai ser salva
-const imageUpload = muler({
+const imageUpload = multer({
     storage: imageStorage,
     fileFilter(req, file, cb){
         if(!file.originalname.match(/\.(png|jpg)$/)) {

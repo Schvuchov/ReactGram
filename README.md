@@ -15,8 +15,9 @@ Projeto baseado no Instagram seguindo curso de React da Udemy. Sendo desnvolvido
   - Registro do usuário
   - Validações de login
   - Login de usuário
-  - Criando validação de autenticação (atualizar no notion)
+  - Criando validação de autenticação
   - Resgatando usuário autenticado
   - Middleware de upload de imagens
   - Middleware de atualização de usuário
+  - Atualização de usuário
 
